@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ka" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Space | Rustavi</title>
+<link rel="preconnect" href="logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div id="header"></div>
+
+<main>
+<!-- ================= მთავარი ================= -->
+<div class="view" id="v-home">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow line" data-i18n="hero_eyebrow"></div>
+      <h1 data-i18n-html="hero_title"></h1>
+      <p class="hero-sub" data-i18n="hero_sub"></p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn"><span data-i18n="hero_cta_menu"></span> ↗</a>
+        <a href="#reservation" class="btn ghost" data-i18n="hero_cta_res"></a>
+      </div>
+      <form class="quick" id="quick">
+        <input type="date" id="qd" required>
+        <select id="qt"></select>
+        <input type="number" id="qg" min="1" max="30" value="2" required>
+        <button class="btn" data-i18n="q_go"></button>
+      </form>
+      <div class="hero-loc"><span>RUSTAVI, GEORGIA</span><span>41.5762377° N · 44.9930384° E</span></div>
+      
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="sec-head reveal">
+        <div><div class="eyebrow">SIGNATURE</div><h2 data-i18n="pop_title"></h2></div>
+        <a href="#menu" class="link" data-i18n="pop_all"></a>
+      </div>
+      <div class="grid" id="popGrid"></div>
+    </div>
+  </section>
+
+  <section class="alt" id="about">
+    <div class="container">
+      <div class="about-top reveal">
+        <div><div class="eyebrow">WELCOME TO NEW SPACE</div><h2 class="big" data-i18n-html="about_title"></h2></div>
+        <p class="lead" data-i18n="about_text"></p>
+      </div>
+      <div class="about-split reveal">
+        <img src="864684720_995853140241001_2215469248230954209_n.jpg" alt="">
+        <div><div class="eyebrow">OUR KITCHEN</div><h2 class="big" data-i18n="kitchen_title"></h2><p class="lead" data-i18n="kitchen_text"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <div class="sec-head reveal"><div><div class="eyebrow">GALLERY</div><h2 data-i18n="gallery_title"></h2></div></div>
+      <div class="gallery" id="galleryBox"></div>
+    </div>
+  </section>
+
+  <section class="alt" id="guestSec" hidden>
+    <div class="container">
+      <div class="sec-head reveal"><div><div class="eyebrow">GUEST LOVE</div><h2 data-i18n="guest_title"></h2></div></div>
+      <div class="guest-grid" id="guestGrid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta reveal">
+        <h2 data-i18n="cta_title"></h2><p data-i18n="cta_text"></p>
+        <a href="#reservation" class="btn" data-i18n="hero_cta_res"></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= მენიუ ================= -->
+<div class="view" id="v-menu" hidden>
+  <section>
+    <div class="container">
+      <div class="page-head"><div class="eyebrow">NEW SPACE MENU</div><h1 data-i18n="menu_title"></h1><p data-i18n="menu_sub"></p></div>
+      <div class="toolbar">
+        <div class="search"><span>⌕</span><input type="search" id="q" data-i18n-ph="search_ph"></div>
+        <select id="sort">
+          <option value="def" data-i18n="sort_def"></option><option value="pa" data-i18n="sort_pa"></option>
+          <option value="pd" data-i18n="sort_pd"></option><option value="rate" data-i18n="sort_rate"></option>
+          <option value="name" data-i18n="sort_name"></option>
+        </select>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= დაჯავშნა ================= -->
+<div class="view" id="v-reservation" hidden>
+  <section>
+    <div class="container">
+      <div class="page-head"><div class="eyebrow">RESERVATION</div><h1 data-i18n="res_title"></h1><p data-i18n="res_sub"></p></div>
+
+      <div class="step"><b>1</b><h3 data-i18n="step1"></h3></div>
+      <div class="filters"><input type="date" id="rd"></div>
+      <div class="times" id="times"></div>
+
+      <div class="step"><b>2</b><h3 data-i18n="step2"></h3></div>
+      <div class="legend">
+        <span><i style="background:var(--primary)"></i><span data-i18n="free"></span></span>
+        <span><i style="background:var(--busy)"></i><span data-i18n="busy"></span></span>
+        <span><i style="background:var(--gold)"></i><span data-i18n="selected"></span></span>
+        <button class="chip on" id="viewBtn">3D</button>
+      </div>
+      <div class="counter" id="counter"></div>
+      <div class="stage-wrap" id="wrap"><div class="stage-box d3" id="box"><div class="stage" id="stage"></div></div></div>
+      <div class="sel-info" id="selInfo"></div>
+
+      <div class="step"><b>3</b><h3 data-i18n="step3"></h3></div>
+      <form class="form-card" id="resForm">
+        <div class="form-grid">
+          <div><label data-i18n="first_name"></label><input id="fn" required maxlength="50"></div>
+          <div><label data-i18n="last_name"></label><input id="ln" required maxlength="50"></div>
+          <div><label data-i18n="phone"></label><input id="ph" type="tel" required placeholder="5XX XX XX XX"></div>
+          <div><label data-i18n="email_opt"></label><input id="em" type="email"></div>
+          <div class="full"><label data-i18n="guests"></label><input id="gs" type="number" min="1" max="30" required></div>
+          <div class="full"><label data-i18n="comment"></label><textarea id="cm" maxlength="400"></textarea></div>
+          <div class="full"><button class="btn block" id="submit" data-i18n="reserve_btn"></button></div>
+        </div>
+        <div class="msg" id="msg"></div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ================= კონტაქტი ================= -->
+<div class="view" id="v-contact" hidden>
+  <section>
+    <div class="container">
+      <div class="page-head center"><div class="eyebrow">FIND YOUR WAY TO US</div><h1 data-i18n="contact_title"></h1><p data-i18n="contact_sub"></p></div>
+      <div class="contact-grid">
+        <div class="info-card">
+          <div class="info-row"><span class="ic">📍</span><div><small data-i18n="address"></small><b id="addr"></b><a class="link" id="route" target="_blank" rel="noopener"></a></div></div>
+          <div class="info-row"><span class="ic">📞</span><div><small data-i18n="phone"></small><a class="tel" id="tel"></a></div></div>
+          <div class="info-row"><span class="ic">🕒</span><div><small data-i18n="hours"></small><b id="hoursVal">12:00 – 00:00</b></div></div>
+          <div class="socials" id="socials"></div>
+        </div>
+        <iframe class="map" id="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<div id="footer"></div>
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+<script src="supabase.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
